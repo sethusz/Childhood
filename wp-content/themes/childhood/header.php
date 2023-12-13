@@ -53,8 +53,8 @@
                             <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/phone.svg"
                                 alt="телефон" class="header__contacts-logo">
                             <div class="header__contacts-tel">
-                                <a href="tel:<?php the_field('number_phone_1') ?>"><?php the_field('number_phone_1', 2) ?></a>
-                                <a href="tel:<?php the_field('number_phone_2') ?>"><?php the_field('number_phone_2', 2) ?></a>
+                                <a href="tel:<?php the_field('number_phone_1', 2) ?>"><?php the_field('number_phone_1', 2) ?></a>
+                                <a href="tel:<?php the_field('number_phone_2', 2) ?>"><?php the_field('number_phone_2', 2) ?></a>
                             </div>
                         </div>
                         <div class="header__contacts-item">
@@ -66,23 +66,22 @@
                 </div>
             </div>
             <nav class="row" data-slide="1">
-                <ul class="header__nav">
-                    <li>
-                        <a class="header__nav-item" href="#about"><?php bloginfo('name'); ?></a>
-                    </li>
-                    <li>
-                        <a class="header__nav-item" href="#specialists">Наша команда</a>
-                    </li>
-                    <li>
-                        <a class="header__nav-item" href="#toys">Игрушки</a>
-                    </li>
-                    <li>
-                        <a class="header__nav-item" href="#aboutus">Наша история</a>
-                    </li>
-                    <li>
-                        <a class="header__nav-item" href="#contacts">Контакты и отзывы</a>
-                    </li>
-                </ul>
+
+            <?php
+            
+
+            wp_nav_menu( [
+                'menu'            => 'Main',
+                'container'       => false,
+                'menu_class'      => 'header__nav',
+                'echo'            => true,
+                'fallback_cb'     => 'wp_page_menu',
+                'items_wrap'      => '<ul class="header__nav">%3$s</ul>',
+                'depth'           => 1
+            ] );
+
+            ?>
+
             </nav>
         </div>
         <div class="header__hamburger">
